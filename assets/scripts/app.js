@@ -22,7 +22,6 @@ class DOMHelper {
 	}
 
 	static toggleEditStudentModal() {
-		console.log("Helo");
 		DOMHelper.toggleBackdrop();
 		editStudentModal.classList.toggle("visible");
 	}
@@ -55,12 +54,10 @@ const validateData = (modal) => {
 	const genderList = ["", "Male", "Female"];
 	const regex = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
 
-	const name = modal.querySelector("#name").value.trim();
-	const email = modal.querySelector("#email").value.trim();
-	const age = +modal.querySelector("#age").value.trim();
-	const index = modal.querySelector("#gender").selectedIndex;
-
-	console.log(name, email, age);
+	const name = modal.querySelector("input[name='name']").value.trim();
+	const email = modal.querySelector("input[name='email']").value.trim();
+	const age = +modal.querySelector("input[name='age']").value.trim();
+	const index = modal.querySelector("select[name='gender']").selectedIndex;
 	if (name === "" || !regex.test(email) || age < 1 || age > 100) {
 		alert("Please enter correct values");
 		return null;
@@ -69,10 +66,11 @@ const validateData = (modal) => {
 };
 
 const fillDataInModal = (student) => {
-	editStudentModal.querySelector("#name").value = student.name;
-	editStudentModal.querySelector("#email").value = student.email;
-	editStudentModal.querySelector("#age").value = student.age;
-	editStudentModal.querySelector("#gender").value = student.gender;
+	editStudentModal.querySelector("input[name='name']").value = student.name;
+	editStudentModal.querySelector("input[name='email']").value = student.email;
+	editStudentModal.querySelector("input[name='age']").value = student.age;
+	editStudentModal.querySelector("select[name='gender']").value =
+		student.gender;
 };
 
 const editStudentModalHandler = (student, editSudentFn) => {
