@@ -1,0 +1,331 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-family: "Roboto", sans-serif;
+}
+
+body {
+	margin: 0;
+	font-family: "Roboto", sans-serif;
+}
+
+ul {
+	margin: 0;
+	list-style-type: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+small {
+	color: #8f8e8e;
+}
+
+button {
+	padding: 0.3rem 1rem;
+	font-size: 1rem;
+	font-family: inherit;
+	border-width: 0;
+	cursor: pointer;
+	pointer-events: all;
+	transition: all 0.2s;
+	margin-right: 5px;
+}
+
+button:focus {
+	outline: none;
+}
+
+.card {
+	border-radius: 0.3rem;
+	padding: 1rem;
+	margin: 1rem;
+	box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.36);
+}
+
+.modal {
+	padding: 0;
+	position: fixed;
+	top: 10vh;
+	left: 20%;
+	width: 60%;
+	z-index: 100;
+	margin: 0;
+	background: white;
+	display: none;
+}
+
+.modal-header {
+	padding: 1rem;
+	border-bottom: 1px solid #cccccc;
+}
+
+.modal-header h3 {
+	font-size: 1.3rem;
+	font-weight: 400;
+}
+
+.modal-description {
+	padding: 1rem;
+	max-height: 60vh;
+	overflow-y: scroll;
+}
+
+.form-group {
+	padding: 10px;
+}
+
+label {
+	display: block;
+	padding: 5px;
+}
+
+input {
+	width: 100%;
+	padding: 8px;
+	border: 1px solid #cccccc;
+	border-radius: 5px;
+}
+
+input:focus {
+	border-color: black;
+	outline: none;
+}
+
+select {
+	width: 60%;
+	padding: 5px;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+}
+
+select:focus {
+	outline: none;
+}
+
+.modal-action {
+	padding: 1rem;
+	border-top: 1px solid #cccccc;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+}
+
+.modal-action button {
+	color: white;
+	background-color: #0079de;
+	border: 1px solid #0079de;
+	border-radius: 3px;
+}
+
+.modal-action button:hover {
+	background-color: #1884de;
+	border-color: #1884de;
+}
+
+.modal.visible {
+	pointer-events: all;
+	display: block;
+	animation: fade-slide-in 0.3s ease-out forwards;
+}
+
+.main-header {
+	display: flex;
+	flex-direction: row;
+	padding: 0.5rem 1rem;
+	background-color: #343e9c;
+	align-items: center;
+}
+
+.navbar-brand a {
+	color: white;
+	font-size: 1.5rem;
+}
+
+.navbar {
+	margin-left: auto;
+}
+
+.navbar-nav {
+	display: flex;
+}
+
+.nav-item {
+	margin-right: 5px;
+}
+
+.nav-item .nav-link {
+	display: inline-block;
+	color: white;
+	background-color: #ff7d04;
+	border: 1px solid #ff7d04;
+	padding: 0.5rem 1.2rem;
+	border-radius: 5px;
+}
+
+.nav-item .nav-link:hover {
+	background-color: #ff7d04f1;
+	border-color: #ff7d04f1;
+}
+
+#backdrop {
+	width: 100%;
+	height: 100vh;
+	background: rgba(0, 0, 0, 0.56);
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: none;
+	pointer-events: none;
+	z-index: 10;
+	transition: all 0.3s ease;
+}
+
+#backdrop.visible {
+	pointer-events: all;
+	display: block;
+}
+
+main {
+	padding: 1rem;
+}
+
+#entry-text {
+	display: none;
+	width: 60%;
+	margin: 0 auto;
+}
+
+#entry-text.visible {
+	display: block;
+}
+
+#entry-text p {
+	font-size: 2rem;
+	text-align: center;
+	font-weight: 400;
+}
+
+#student-list {
+	width: 60%;
+	margin: 0 auto;
+}
+
+.student h2 {
+	font-size: 1.5rem;
+	margin-bottom: 0.5rem;
+	font-weight: 500;
+}
+
+.student p {
+	margin-bottom: 5px;
+	font-size: 1rem;
+	font-family: inherit;
+}
+
+.student p:last-of-type {
+	margin-bottom: 10px;
+}
+
+.student button:first-of-type {
+	background-color: #0079de;
+	border: 1px solid #0079de;
+	color: white;
+	border-radius: 3px;
+}
+
+.student button:last-of-type {
+	background-color: #e92604;
+	border: 1px solid #e92604;
+	color: white;
+	border-radius: 3px;
+}
+
+.student button:last-of-type {
+	background-color: #db2202;
+	border: 1px solid #db2202;
+}
+
+@keyframes fade-slide-in {
+	0% {
+		transform: translateY(-5rem);
+	}
+	80% {
+		transform: translateY(2rem);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+
+@media (max-width: 992px) {
+	.modal {
+		width: 70%;
+		left: 15%;
+	}
+	#entry-text {
+		width: 70%;
+	}
+	#entry-text p {
+		font-size: 1.8rem;
+	}
+	#student-list {
+		width: 70%;
+	}
+}
+
+@media (max-width: 768px) {
+	.modal {
+		width: 80%;
+		left: 10%;
+	}
+	#entry-text {
+		width: 80%;
+	}
+	#entry-text p {
+		font-size: 1.5rem;
+	}
+	#student-list {
+		width: 80%;
+	}
+}
+
+@media (max-width: 476px) {
+	.nav-item .nav-link {
+		padding: 0.3rem 0.8rem;
+		font-size: 1rem;
+	}
+	.modal {
+		width: 90%;
+		left: 5%;
+	}
+	#entry-text {
+		width: 100%;
+	}
+	#entry-text p {
+		font-size: 1.5rem;
+	}
+	#student-list {
+		width: 100%;
+	}
+	.student h2 {
+		font-size: 1.1rem;
+	}
+}
+
+@media (max-width: 325px) {
+	.main-header {
+		padding: 0.5rem 0.5rem 0.5rem 1rem;
+	}
+	.navbar-brand a {
+		font-size: 1.2rem;
+	}
+	main {
+		padding: 1rem 0rem;
+	}
+}

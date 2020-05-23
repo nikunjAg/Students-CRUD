@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="assets/styles/student.css" />
+		<script src="assets/scripts/app.js" defer></script>
+		<title>Dashboard</title>
+	</head>
+
+	<body>
+		<template>
+			<li class="student card">
+				<h2 class="name"></h2>
+				<p>Email: <span class="email"></span></p>
+				<p>Age: <span class="age"></span></p>
+				<p>Gender: <span class="gender"></span></p>
+				<button>Edit</button>
+				<button>Delete</button>
+			</li>
+		</template>
+
+		<header class="main-header">
+			<div class="navbar-brand">
+				<a href="index.html">Study Zone</a>
+			</div>
+			<nav class="navbar">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<button id="add-student" class="nav-link">
+							Add Student
+						</button>
+					</li>
+				</ul>
+			</nav>
+		</header>
+
+		<main>
+			<div id="backdrop"></div>
+			<div class="modal card" id="add-modal">
+				<div class="modal-header">
+					<h3>Student Details</h3>
+				</div>
+				<div class="modal-description">
+					<div class="form-group">
+						<label for="name">Student Name</label>
+						<input
+							type="text"
+							id="name"
+							name="name"
+							class="form-control"
+							placeholder="Enter Student Name.."
+						/>
+					</div>
+					<div class="form-group">
+						<label for="email">Email Address</label>
+						<input
+							type="email"
+							id="email"
+							name="email"
+							class="form-control"
+							placeholder="Enter Email Address.."
+						/>
+						<small>Please enter a valid Email Address</small>
+					</div>
+					<div class="form-group">
+						<label for="age">Age</label>
+						<input
+							type="number"
+							id="age"
+							name="age"
+							class="form-control"
+							placeholder="Enter Student Age.."
+							min="1"
+							max="100"
+						/>
+						<small>Please enter age in range 1 to 100</small>
+					</div>
+					<div class="form-group">
+						<label for="gender">Gender</label>
+						<select id="gender" name="gender">
+							<option value="">Prefer Not Say</option>
+							<option value="Male">Male</option>
+							<option value="Female">Female</option>
+						</select>
+					</div>
+				</div>
+				<div class="modal-action">
+					<button>ADD</button>
+					<button>Cancel</button>
+				</div>
+			</div>
+			<div class="modal card" id="edit-modal">
+				<div class="modal-header">
+					<h3>Edit Details</h3>
+				</div>
+				<div class="modal-description">
+					<div class="form-group">
+						<label for="name">Student Name</label>
+						<input
+							type="text"
+							id="name"
+							name="name"
+							class="form-control"
+							placeholder="Enter Student Name.."
+						/>
+					</div>
+					<div class="form-group">
+						<label for="email">Email Address</label>
+						<input
+							type="email"
+							id="email"
+							name="email"
+							class="form-control"
+							placeholder="Enter Email Address.."
+						/>
+						<small>Please enter a valid Email Address</small>
+					</div>
+					<div class="form-group">
+						<label for="age">Age</label>
+						<input
+							type="number"
+							id="age"
+							name="age"
+							class="form-control"
+							placeholder="Enter Student Age.."
+							min="1"
+							max="100"
+						/>
+						<small>Please enter age in range 1 to 100</small>
+					</div>
+					<div class="form-group">
+						<label for="gender">Gender</label>
+						<select id="gender" name="gender">
+							<option value="">Prefer Not Say</option>
+							<option value="Male">Male</option>
+							<option value="Female">Female</option>
+						</select>
+					</div>
+				</div>
+				<div class="modal-action">
+					<button>UPDATE</button>
+					<button>Cancel</button>
+				</div>
+			</div>
+			<div class="modal card" id="delete-modal">
+				<div class="modal-header">
+					<h3>Are you Sure?</h3>
+				</div>
+				<div class="modal-description">
+					<p>This action cannot be reverted back again</p>
+				</div>
+				<div class="modal-action">
+					<button>Yes</button>
+					<button>No(Cancel)</button>
+				</div>
+			</div>
+			<section id="entry-text" class="card visible">
+				<p>Your Students List is Empty!</p>
+			</section>
+			<ul id="student-list"></ul>
+		</main>
+	</body>
+</html>

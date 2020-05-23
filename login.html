@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			* {
+				box-sizing: border-box;
+				margin: 0;
+				padding: 0;
+			}
+
+			html {
+				font-family: "Roboto", sans-serif;
+			}
+
+			body {
+				margin: 0;
+				font-family: "Roboto", sans-serif;
+			}
+
+			a {
+				text-decoration: none;
+				display: inline-block;
+			}
+
+			ul {
+				margin: 0;
+				list-style-type: none;
+			}
+			.main-header {
+				display: flex;
+				flex-direction: row;
+				padding: 0.5rem 1rem;
+				background-color: #343e9c;
+				align-items: center;
+			}
+
+			.navbar-brand p {
+				color: white;
+				font-size: 1.5rem;
+			}
+
+			.navbar {
+				margin-left: auto;
+			}
+
+			.navbar-nav {
+				display: flex;
+			}
+
+			.nav-item {
+				margin-right: 5px;
+			}
+
+			.nav-item .nav-link {
+				display: inline-block;
+				color: white;
+				background-color: #ff7d04;
+				border: 1px solid #ff7d04;
+				padding: 0.5rem 1.2rem;
+				border-radius: 5px;
+				cursor: pointer;
+				pointer-events: all;
+			}
+
+			.nav-item .nav-link:hover {
+				background-color: #ff7d04f1;
+				border-color: #ff7d04f1;
+			}
+
+			form {
+				width: 60%;
+				margin: 0 auto;
+			}
+
+			.form-group {
+				padding: 10px;
+			}
+
+			label {
+				display: block;
+				padding: 5px;
+			}
+
+			input {
+				width: 100%;
+				padding: 8px;
+				border: 1px solid #cccccc;
+				border-radius: 5px;
+			}
+
+			input:focus {
+				border-color: black;
+				outline: none;
+			}
+
+			small {
+				color: #8f8f8f;
+			}
+
+			button {
+				padding: 0.5rem 1.3rem;
+				margin-left: 10px;
+				font-size: 1rem;
+				color: white;
+				background-color: #0079de;
+				border: 1px solid #0079de;
+				border-radius: 3px;
+				transition: all 0.2s ease;
+			}
+
+			button:focus {
+				outline: none;
+			}
+
+			button:hover,
+			button:active {
+				background-color: #1884de;
+				border-color: #1884de;
+			}
+
+			#login-section {
+				padding: 1rem;
+			}
+
+			@media (max-width: 550px) {
+				form {
+					width: 70%;
+				}
+			}
+			@media (max-width: 320px) {
+				.navbar-brand p {
+					font-size: 1.3rem;
+				}
+				.nav-item .nav-link {
+					padding: 0.3rem 0.8rem;
+					font-size: 1rem;
+				}
+				form {
+					width: 100%;
+				}
+			}
+		</style>
+		<title>Login</title>
+	</head>
+	<body>
+		<header class="main-header">
+			<div class="navbar-brand">
+				<p>Study Zone</p>
+			</div>
+			<nav class="navbar">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="index.html">
+							HOME
+						</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<section id="login-section">
+			<form action="">
+				<div class="form-group">
+					<label for="email">Email Address</label>
+					<input
+						type="email"
+						name="email"
+						id="email"
+						placeholder="Enter EmailID ..."
+						required
+					/>
+					<small>Please enter a valid Email Address.</small>
+				</div>
+				<div class="form-group">
+					<label for="password">Password</label>
+					<input
+						type="password"
+						name="password"
+						id="password"
+						placeholder="Enter Password ..."
+						minlength="6"
+						required
+					/>
+					<small>Password length should be greater then 6</small>
+				</div>
+				<button type="submit">Login</button>
+			</form>
+		</section>
+		<script>
+			const form = document.querySelector("form");
+			const email = document.getElementById("email");
+			const password = document.getElementById("password");
+			form.addEventListener("submit", (event) => {
+				event.preventDefault();
+				if (!email.validity.valid || !password.validity.valid) {
+					alert("Please Enter Correct Values");
+					return;
+				}
+				location.replace("dashboard.html");
+			});
+		</script>
+	</body>
+</html>
